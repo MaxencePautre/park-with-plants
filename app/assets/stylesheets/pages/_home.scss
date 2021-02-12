@@ -1,0 +1,41 @@
+// Specific CSS for your home-page
+table {
+  width: 700px
+ }
+ tr,table {
+   border-bottom: solid black 1px;
+ }
+ 
+ th,td {
+   padding: 5px 5px;
+ }
+ 
+ th {
+   text-align: center;
+ }
+ 
+ .garden-photos {
+   height: 300px;
+   width:300px;
+   display:block;
+   margin-left: auto;
+   margin-right: auto;
+ }
+ 
+ .index-container {
+   margin: 50px 50px;
+   display: flex;
+   justify-content: center
+ }
+ 
+ .table-elements {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+ }
+ 
+ @media (min-width: 100px) and (max-width: 575px) {
+ 
+   .table-elements {
+     grid-template-columns: 1fr;
+   }
+ }

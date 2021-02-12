@@ -1,0 +1,18 @@
+<h1 style = "text-align: center" class = "mt-5"> Liste des jardins</h1>
+<div class = "index-container">
+  <div class = "table-elements">
+    <table class = "mt-5">
+      <tr>
+        <th><strong>name</strong></th>
+        <th><strong>images</strong></th>
+    </tr>
+    <% @gardens.each do |garden| %>
+      <tr>
+        <td><%= garden.name %></td>
+        <td><img src="<%=garden.banner_url %>" class = "garden-photos"></td>
+        <td><%= link_to "voir le jardin", garden_path(garden) %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

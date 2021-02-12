@@ -1,0 +1,10 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <%= simple_form_for([@plant, @plant_tag]) do |f| %> 
+        <%= f.input :tag, collection: Tag.all, as: :check_boxes, input_html: {multiple: true}, include_hidden: false %> 
+        <%= f.submit "Ajouter mon tag", class:"btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

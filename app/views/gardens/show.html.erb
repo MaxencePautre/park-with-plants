@@ -1,0 +1,28 @@
+<div style = "background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('<%= @garden.banner_url%>')", class = "banner-garden">
+  <h1 class = "garden-title"><%= @garden.name %></h1>
+</div>
+<div class= "plant-show">
+  <%@garden.plants.each do |plant| %>
+    <div class = "plant-card" style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= plant.photo_url %>');">
+      <h5><%=plant.name%></h5>
+      <div class = "plant-tag">
+        <% plant.plant_tags.each do |plant_tag| %>
+          <span><%= plant_tag.tag.name %></span>
+        <% end %>
+        <%= link_to new_plant_plant_tag_path(plant) do %>
+          <i class="fas fa-plus" style = "color:white;"></i>
+        <% end %>
+      </div>
+      <%= link_to "+", plant_path(plant), method: :delete, class: "delete-plant" %>
+    </div>
+  <% end %>
+</div>
+<div class = "form-specs">
+  <div>
+    <%= simple_form_for([@garden, @plant], remote: true)  do |f|  %> 
+      <%= f. input :name, wrapper_html: {class: 'label-style' }, placeholder: 'Entrez un nom'  %>
+      <%= f.input :photo_url %>
+      <%= f.submit 'Créer ma plante', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
